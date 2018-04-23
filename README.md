@@ -15,8 +15,10 @@ Face Right ![Hero Face Right](https://github.com/nguyenannie/Role_Playing_Game/b
 ### Monster
 ![Monster](https://github.com/nguyenannie/Role_Playing_Game/blob/master/src/resources/images/monster.gif)
 
+### Wall
+![Wall](https://github.com/nguyenannie/Role_Playing_Game/blob/master/src/resources/images/wall.jpg)
+
 ### Floor
 ![Floor](https://github.com/nguyenannie/Role_Playing_Game/blob/master/src/resources/images/floor.png)
 
-### Wall
-![Wall](https://github.com/nguyenannie/Role_Playing_Game/blob/master/src/resources/images/wall.jpg)
+
