@@ -1,10 +1,11 @@
-package Model;
+package main.models;
 
 import javax.swing.*;
 import java.util.Random;
 
 public class Monster extends Character {
-    private final String monsterImage = "skeleton.gif";
+
+    private static final String MONSTER_IMAGE = "/Users/annie/MyGithubProjects/TkWanderer/src/resources/images/skeleton.gif";
     private boolean moveLastRound;
     private boolean hasKey;
 
@@ -22,12 +23,13 @@ public class Monster extends Character {
     }
     
     public void move(Maze maze){
-        int newX, newY;
+        int newX;
+        int newY;
 
         do {
             newX = x + stepRandom();
             newY = y + stepRandom();
-        } while(maze.getTile(newX,newY).orElse(Maze.WALL).isSolid);
+        } while(maze.getTile(newX,newY).orElse(Maze.WALL).isSolid());
 
         x = newX;
         y = newY;
@@ -48,9 +50,31 @@ public class Monster extends Character {
     }
 
     void initCharacter(int xPos,int yPos){
-        ImageIcon icon = new ImageIcon(monsterImage);
+        ImageIcon icon = new ImageIcon(MONSTER_IMAGE);
         image = icon.getImage();
         x = xPos;
         y = yPos;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (!Monster.class.isAssignableFrom(obj.getClass())) {
+            return false;
+        }
+        final Monster monsterToCompare = (Monster) obj;
+        return this.hasKey == monsterToCompare.hasKey
+                && this.moveLastRound == monsterToCompare.moveLastRound;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + (moveLastRound ? 1 : 0);
+        result = 31 * result + (hasKey ? 1 : 0);
+        return result;
+    }
+
 }

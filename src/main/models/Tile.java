@@ -1,15 +1,16 @@
-package Model;
+package main.models;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Tile {
-    public static final int tileSize = 72;
+
+    public static final int TILE_SIZE = 72;
 
     private Image tileType;
-    public boolean isSolid;
+    private boolean isSolid;
 
-    Tile(String filePath, boolean isSolid) {
+    public Tile(String filePath, boolean isSolid) {
         this.isSolid = isSolid;
         setTileType(filePath);
     }
@@ -22,4 +23,13 @@ public class Tile {
     public Image getTileType() {
         return tileType;
     }
+
+    public boolean isSolid() {
+        return isSolid;
+    }
+
+    public void setSolid(boolean solid) {
+        isSolid = solid;
+    }
+
 }

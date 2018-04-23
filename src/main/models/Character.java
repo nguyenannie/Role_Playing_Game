@@ -1,11 +1,12 @@
-package Model;
+package main.models;
 
 import java.awt.*;
 import java.util.Random;
 import javax.swing.ImageIcon;
 
 public class Character {
-    public static final int step = Tile.tileSize;
+
+    public static final int STEP = Tile.TILE_SIZE;
 
     public int maxHealthPoint;
     public int healthPoint;
@@ -23,7 +24,7 @@ public class Character {
     }
 
     private void initCharacter() {
-
+        //may have extra implementation later
     }
 
     public int getLevel() {
@@ -86,4 +87,5 @@ public class Character {
         defendPoint += rollDice();
         strikePoint += rollDice();
     }
+
 }

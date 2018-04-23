@@ -1,13 +1,15 @@
-package Model;
+package main.models;
 
 import java.util.Optional;
+import java.util.Random;
 
 public class Maze {
-    public static final Tile WALL = new Tile("wall.gif",true);
-    public static final Tile FLOOR = new Tile("floor.gif",false);
 
-    private static Tile[][] data;
-    private java.util.Random rand = new java.util.Random();
+    public static final Tile WALL = new Tile("/Users/annie/MyGithubProjects/TkWanderer/src/resources/images/wall.gif",true);
+    public static final Tile FLOOR = new Tile("/Users/annie/MyGithubProjects/TkWanderer/src/resources/images/floor.gif",false);
+
+    private Tile[][] data;
+    private Random rand = new Random();
 
     public static final int MAZE_WIDTH = 35;
     public static final int MAZE_HEIGHT = 29;
@@ -29,7 +31,7 @@ public class Maze {
             final int y1 = y + moveY[dir];
             final int x2 = x1 + moveX[dir];
             final int y2 = y1 + moveY[dir];
-            if(getTile(x2, y2).orElse(FLOOR).isSolid) {
+            if(getTile(x2, y2).orElse(FLOOR).isSolid()) {
                 data[x1][y1] = FLOOR;
                 data[x2][y2] = FLOOR;
                 carve(x2, y2);
@@ -59,5 +61,6 @@ public class Maze {
             return Optional.of(data[x][y]);
         }
     }
+
 }
 

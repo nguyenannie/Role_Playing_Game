@@ -1,13 +1,14 @@
-package View;
+package main;
 
-import Model.Tile;
+import main.models.Tile;
+import main.views.Board;
 
 import java.awt.*;
 import javax.swing.*;
 
 public class TKWanderer extends JFrame {
-    public static final int SCREEN_WIDTH = 11 * Tile.tileSize;
-    public static final int SCREEN_HEIGHT = 9 * Tile.tileSize + 23;
+    public static final int SCREEN_WIDTH = 11 * Tile.TILE_SIZE;
+    public static final int SCREEN_HEIGHT = 9 * Tile.TILE_SIZE + 23;
 
     private TKWanderer() {
         initUI();
@@ -19,7 +20,7 @@ public class TKWanderer extends JFrame {
         setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
         setResizable(false);
 
-        setTitle("View.TKWanderer");
+        setTitle("main.TKWanderer");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }

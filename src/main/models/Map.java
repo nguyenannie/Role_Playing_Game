@@ -1,4 +1,4 @@
-package Model;
+package main.models;
 
 import java.awt.*;
 import java.nio.file.Files;
@@ -8,13 +8,14 @@ import java.util.*;
 import java.util.List;
 
 public class Map {
-    private Tile[][] map = new Tile[10][11];
+
+    private Tile[][] tiles = new Tile[10][11];
     private Path mapPath;
     private List<String> mapData;
-    private final String path = "/Users/annie/greenfox/nguyenannie/week-05/TkWanderer/src/MapData";
+    private static final String PATH = "resources/MapData";
 
-    public Map(){
-        mapPath = Paths.get(path);
+    public Map() {
+        mapPath = Paths.get(PATH);
         mapData = new ArrayList<>();
         getMapData();
 
@@ -24,9 +25,9 @@ public class Map {
         for(int i = 0; i < 10; i ++){
             for(int j = 0; j < 11; j ++){
                 if(getMapData().get(i).charAt(j) == '0'){
-                    map[i][j] = floor;
+                    tiles[i][j] = floor;
                 } else if (getMapData().get(i).charAt(j) == '1'){
-                    map[i][j] = wall;
+                    tiles[i][j] = wall;
                 }
             }
         }
@@ -45,7 +46,7 @@ public class Map {
         if(x < 0 || x > 9 || y < 0 || y > 10) {
             return new Tile("wall.gif",true);
         } else {
-            return map[x][y];
+            return tiles[x][y];
         }
     }
 
@@ -53,9 +54,10 @@ public class Map {
         for(int i = 0; i < 10; i ++){
             for (int j = 0; j < 11; j ++){
                 Graphics2D g2d = (Graphics2D) g;
-                g2d.drawImage(getTile(i,j).getTileType(),i * Tile.tileSize ,j * Tile.tileSize , null);
+                g2d.drawImage(getTile(i,j).getTileType(),i * Tile.TILE_SIZE,j * Tile.TILE_SIZE, null);
             }
         }
     }
+
 }
 

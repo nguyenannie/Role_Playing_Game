@@ -1,12 +1,13 @@
-package View;
+package main.views;
 
-import Model.Character;
+import main.models.Character;
 
 import java.awt.*;
 
-import static Model.Character.step;
+import static main.models.Character.STEP;
 
 public class DrawCharacter implements Drawable {
+
     private Character character;
 
     void setCharacter(Character character) {
@@ -16,6 +17,7 @@ public class DrawCharacter implements Drawable {
     @Override
     public void draw(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
-        g2d.drawImage(character.getImage(), character.getX() * step, character.getY() * step, null);
+        g2d.drawImage(character.getImage(), character.getX() * STEP, character.getY() * STEP, null);
     }
+
 }

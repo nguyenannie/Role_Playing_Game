@@ -1,6 +1,7 @@
-package View;
+package main.views;
 
-import Controller.GameController;
+import main.controllers.GameController;
+import main.TKWanderer;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,11 +10,12 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 
-import static Model.Maze.MAZE_HEIGHT;
-import static Model.Maze.MAZE_WIDTH;
-import static Model.Tile.tileSize;
+import static main.models.Maze.MAZE_HEIGHT;
+import static main.models.Maze.MAZE_WIDTH;
+import static main.models.Tile.TILE_SIZE;
 
 public class Board extends JPanel implements ActionListener {
+
     private GameController controller;
     private DrawStat drawStat;
     private DrawCharacter drawCharacter;
@@ -49,13 +51,13 @@ public class Board extends JPanel implements ActionListener {
 
     private void drawGame(Graphics g) {
         int boundLeft = TKWanderer.SCREEN_WIDTH / 2;
-        int boundRight = MAZE_WIDTH * tileSize - TKWanderer.SCREEN_WIDTH / 2;
+        int boundRight = MAZE_WIDTH * TILE_SIZE - TKWanderer.SCREEN_WIDTH / 2;
 
         int boundTop = TKWanderer.SCREEN_HEIGHT / 2;
-        int boundBottom = MAZE_HEIGHT * tileSize - TKWanderer.SCREEN_HEIGHT / 2;
+        int boundBottom = MAZE_HEIGHT * TILE_SIZE - TKWanderer.SCREEN_HEIGHT / 2;
 
-        int camXPos = clamp(controller.getHero().getX() * tileSize, boundLeft, boundRight);
-        int camYPos = clamp( controller.getHero().getY() * tileSize, boundTop, boundBottom);
+        int camXPos = clamp(controller.getHero().getX() * TILE_SIZE, boundLeft, boundRight);
+        int camYPos = clamp( controller.getHero().getY() * TILE_SIZE, boundTop, boundBottom);
 
         int offSetX = - camXPos + TKWanderer.SCREEN_WIDTH/2;
         int offSetY = - camYPos + TKWanderer.SCREEN_HEIGHT/2 ;
@@ -97,4 +99,5 @@ public class Board extends JPanel implements ActionListener {
     private static int clamp(int x, int low, int high) {
         return Math.max(low, Math.min(high, x));
     }
+
 }

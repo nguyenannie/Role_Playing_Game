@@ -1,11 +1,13 @@
-package Controller;
+package main.controllers;
 
 import java.util.*;
 import java.awt.event.KeyEvent;
 import java.util.List;
-import Model.*;
+import java.util.Random;
+import main.models.*;
 
 public class GameController {
+
     private static final int INITIAL_MONSTER_AMOUNT = 20;
     private Hero hero;
     private List<Monster> monsterList;
@@ -50,7 +52,7 @@ public class GameController {
         do {
             pos[0] = random.nextInt(Maze.MAZE_WIDTH);
             pos[1] = random.nextInt(Maze.MAZE_HEIGHT);
-        } while(maze.getTile(pos[0], pos[1]).orElse(Maze.WALL).isSolid);
+        } while(maze.getTile(pos[0], pos[1]).orElse(Maze.WALL).isSolid());
 
         return pos;
     }
@@ -113,6 +115,8 @@ public class GameController {
                         }
                     }
                 }
+                break;
+            default:
         }
 
         if(heroMoved) {
@@ -121,7 +125,7 @@ public class GameController {
             }
         }
 
-        if((keyMonster.isDead() && boss.isDead()) || monsterList.size() == 0) {
+        if((keyMonster.isDead() && boss.isDead()) || monsterList.isEmpty()) {
             nextLevel();
         }
     }
@@ -145,17 +149,19 @@ public class GameController {
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_S:
                 break;
+            default:
         }
     }
 
     private void nextLevel() {
+        Random r = new Random();
         maze.generate();
         hero.updateLevel();
         hero.levelUp();
         hero.initCharacter();
-        monsterAmount = (int)(Math.random() * 5) + INITIAL_MONSTER_AMOUNT;
-
+        monsterAmount = r.nextInt(5)+ INITIAL_MONSTER_AMOUNT;
         initGame();
     }
+
 }
 

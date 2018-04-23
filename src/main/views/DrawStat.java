@@ -1,14 +1,14 @@
-package View;
+package main.views;
 
-import Controller.GameController;
-import Model.Hero;
-import Model.Maze;
-import Model.Monster;
-import Model.Tile;
+import main.controllers.GameController;
+import main.models.Hero;
+import main.models.Monster;
+import main.TKWanderer;
 
 import java.awt.*;
 
 public class DrawStat implements Drawable {
+
     private static final int STAT_WIDTH = 330;
     private static final int STAT_HEIGHT = 20;
     private static final int STAT_SIZE = 15;
@@ -85,4 +85,5 @@ public class DrawStat implements Drawable {
         g.drawString("You are Dead!!!", GAMEOVER_POSX, GAMEOVER_POSY);
 
     }
+
 }
