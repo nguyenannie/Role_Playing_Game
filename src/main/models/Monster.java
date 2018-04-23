@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Monster extends Character {
 
-    private static final String MONSTER_IMAGE = "/Users/annie/MyGithubProjects/TkWanderer/src/resources/images/skeleton.gif";
+    private static final String MONSTER_IMAGE = "/Users/annie/MyGithubProjects/TkWanderer/src/resources/images/monster.gif";
     private boolean moveLastRound;
     private boolean hasKey;
 

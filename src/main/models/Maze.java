@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class Maze {
 
-    public static final Tile WALL = new Tile("/Users/annie/MyGithubProjects/TkWanderer/src/resources/images/wall.gif",true);
-    public static final Tile FLOOR = new Tile("/Users/annie/MyGithubProjects/TkWanderer/src/resources/images/floor.gif",false);
+    public static final Tile WALL = new Tile("/Users/annie/MyGithubProjects/TkWanderer/src/resources/images/wall.jpg",true);
+    public static final Tile FLOOR = new Tile("/Users/annie/MyGithubProjects/TkWanderer/src/resources/images/floor.png",false);
 
     private Tile[][] data;
     private Random rand = new Random();

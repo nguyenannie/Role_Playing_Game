@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class BossMonster extends Monster {
 
-    private static final String BOSS_IMAGE = "/Users/annie/MyGithubProjects/TkWanderer/src/resources/images/boss.gif";
+    private static final String BOSS_IMAGE = "/Users/annie/MyGithubProjects/TkWanderer/src/resources/images/boss.png";
 
     public BossMonster(int xc, int yc, int level) {
         this.level = level;
