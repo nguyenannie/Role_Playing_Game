@@ -18,7 +18,5 @@ Face Right ![Hero Face Right](https://github.com/nguyenannie/Role_Playing_Game/b
 ### Wall
 ![Wall](https://github.com/nguyenannie/Role_Playing_Game/blob/master/src/resources/images/wall.jpg)
 
-### Floor
-![Floor](https://github.com/nguyenannie/Role_Playing_Game/blob/master/src/resources/images/floor.png)
-
-
+### Game Screenshot
+![Game Screenshot](https://github.com/nguyenannie/Role_Playing_Game/blob/master/src/resources/images/Game_Screenshot.png)
